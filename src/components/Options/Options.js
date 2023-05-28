@@ -5,7 +5,7 @@ import "./Options.css";
 const Options = (props) => {
   const options = [
     {
-      text: "Type Got it",
+      text: "Got it",
       handler: props.actionProvider.greet,
       id: 1,
     },

@@ -9,7 +9,13 @@ const MessageParser = ({ children, actions }) => {
     }
   };
 
+  const greet = () => {
+    actions.handleGreet();
+    parse("got it");
+  };
+
   const parse = (message) => {
+    console.log(message);
     const lowercase = message.toLowerCase();
 
     if (lowercase.includes("got it")) {
@@ -26,8 +32,10 @@ const MessageParser = ({ children, actions }) => {
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           parse: parse,
-          handleAgeInput: handleAgeInput,
-          actions: {},
+          actions: {
+            greet,
+            parse,
+          },
         });
       })}
     </div>
@@ -35,17 +43,3 @@ const MessageParser = ({ children, actions }) => {
 };
 
 export default MessageParser;
-// class MessageParser {
-//   state = {};
-//   constructor(actionProvider, state) {
-//     this.state = state;
-//     this.actionProvider = actionProvider;
-//   }
-
-//   parse = (message) => {
-//     console.log("current message" + message);
-//     console.log("state data", this.state);
-//   };
-// }
-
-// export default MessageParser;

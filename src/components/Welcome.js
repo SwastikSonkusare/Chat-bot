@@ -14,7 +14,7 @@ const Welcome = () => {
   return (
     <div className="welcome container">
       <h1>
-        Your name {name} aged {age} has been added to student system. You may
+        Your name {name} & aged {age} has been added to student system. You may
         now exit.
       </h1>
       <button onClick={handleRedirect}> Exit</button>

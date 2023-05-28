@@ -20,6 +20,15 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
+  const handleGreet = () => {
+    const message = createClientMessage("got it");
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+    }));
+  };
+
   const handleValidAge = (age) => {
     const message = createClientMessage(age);
 
@@ -75,17 +84,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const greet = () => {
-    const message = createClientMessage("Enter your age", {
-      widget: "options",
-    });
-
-    setState((prev) => ({
-      ...prev,
-      messages: [...prev.messages, message],
-    }));
-  };
-
   const showAgeDropdown = (handleAgeInput, lowercase) => {
     const message = createChatBotMessage("Enter your age", {
       widget: "ageDropdown",
@@ -108,10 +106,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleHello,
             handleInvalidAge,
             handleValidAge,
+            handleGreet,
             handleCountDown,
             showAgeDropdown,
             navigateToWelcomePage,
-            greet,
           },
         });
       })}
