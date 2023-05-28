@@ -21,6 +21,13 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleValidAge = (age) => {
+    const message = createClientMessage(age);
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+    }));
+
     dispatch(setAge(age));
 
     handleCountDown();

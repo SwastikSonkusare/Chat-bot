@@ -11,8 +11,6 @@ const Options = (props) => {
     },
   ];
 
-  console.log(props.state);
-
   const buttonsMarkup = options.map((option) => (
     <button key={option.id} onClick={option.handler} className="option-button">
       {option.text}
